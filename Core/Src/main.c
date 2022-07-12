@@ -21,7 +21,12 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "dc_control.h"
+#include "bldc_control.h"
+#include "ibus.h"
+#include "usart.h"
+#include "stdio.h"
+#include "stdlib.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -88,7 +93,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USART6_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  ibus_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -98,7 +103,12 @@ int main(void)
 	ibus_read(IBUS);
 	// check returned values from ibus for example: IBUS[0] = VelocitySide;
 
+	//struct dc_control dcMotor;
+	//dcMotor.relay = IBUS[5];
+	//bldc_control bldcMotor;
 	// implement module to choose configuration (DC or BLDC motors)
+	// DC_Control(IBUS[], struct dc_control* dcMotor);
+	// BLDC_Control(IBUS[], struct bldc_control* bldcMotor);
 
     /* USER CODE END WHILE */
 
