@@ -42,7 +42,7 @@
  UART_HandleTypeDef huart6;
 
 /* USER CODE BEGIN PV */
-
+ uint16_t IBUS[IBUS_USER_CHANNELS];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -95,6 +95,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	ibus_read(IBUS);
+	// check returned values from ibus for example: IBUS[0] = VelocitySide;
+
+	// implement module to choose configuration (DC or BLDC motors)
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
